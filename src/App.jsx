@@ -4,28 +4,42 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import { Navbar } from 'react-bootstrap'
-import { Route } from 'react-router-dom'
+import { Route, Routes, Link } from 'react-router-dom'
 import AppLayout from './layout/AppLayout'
+import Homepage from './pages/Homepage/Homepage'
+import MoviePage from './pages/Movies/MoviePage'
+import MovieDetailPage from './pages/MovieDetail/MovieDetailPage'
+import NotFoundPage from './pages/NotFoundpage/NotFoundPage'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios'
 
-
-// 홈페이지
-// 영화 전체 보여주는 페이지 (서치)
-// 영화 디테일 페이지
+// 홈페이지 /
+// 영화 전체 보여주는 페이지 (서치) /movies
+// 영화 디테일 페이지 /movies/:id
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className='App' >
       <Routes>
-        <Route path="/" element={<AppLayout/>}> // user 화면
+        <Route path="/" element={<AppLayout/>}> 
+          <Route index element={<Homepage/>}/>
 
+          <Route path="/movies">
+            <Route index element={<MoviePage/>}/>
+            <Route path=":id" element={<MovieDetailPage/>}/>
+          </Route>
+          {/* <Route path="/movies" element={<MoviePage/>}/>
+          <Route path="/movies/:id" element={<MovieDetailPage/>}/> */}
 
         </Route>
         
+        <Route path="*" element={<NotFoundPage/>}/>
       
       </Routes> 
     </div>
   )
 }
 
+axios.get()
 export default App
