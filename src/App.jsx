@@ -16,6 +16,9 @@ import axios from 'axios'
 // 홈페이지 /
 // 영화 전체 보여주는 페이지 (서치) /movies
 // 영화 디테일 페이지 /movies/:id
+// 추천 영화 /movies/:id/recommandation
+// 리뷰 /movies/:id/reviews
+
 function App() {
   const [count, setCount] = useState(0)
 
