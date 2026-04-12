@@ -10,7 +10,7 @@ import { Outlet, Link } from 'react-router-dom';
 const AppLayout = () => {
   return (
     <div style={{ backgroundColor: "black", minHeight: "100vh", color: "white" }}>
-     <Navbar bg="dark" variant="dark" expand="lg" >
+     <Navbar  variant="dark" expand="lg" style={{ backgroundColor: "#000" }} >
       <Container fluid>
         <Navbar.Brand href="#">
             <img
