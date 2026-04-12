@@ -4,11 +4,12 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import  Alert  from "react-bootstrap/Alert";
 import MovieCard from "../MovieCard/MovieCard";
+import "./PopularMovieSlide.style.css";
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 8,
+    items: 6,
    
   },
   tablet: {
