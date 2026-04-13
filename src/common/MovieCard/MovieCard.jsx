@@ -6,13 +6,30 @@ import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
 const MovieCard = ({movie}) => {
 
   const {data:genreData} = useMovieGenreQuery()
+
+  const showGenre=(genreIdList)=>{
+    if(!genreData) return []
+    const genreNameList=genreIdList.map((id)=>{
+      const genreObj = genreData.find((genre)=>genre.id === id)
+      return genreObj.name;
+    })
+
+    return genreNameList
+  }
+
   return <div
   style={{backgroundImage:"url("+`https://image.tmdb.org/t/p/w300_and_h450_face${movie.poster_path}`+")"}}
   className="movie-card"
   >
-    <div className='overlay'>
+    <div className='overlay p-2'>
         <h1>{movie.title}</h1>
-        {movie.genre_ids.map((id)=><Badge bg="danger">{id}</Badge>)}
+        <div>
+        {showGenre(movie.genre_ids).map((genre, index)=>(
+          <Badge bg="danger" key={index} className="me-1">
+            {genre}
+          </Badge>
+          ))}
+          </div>
     </div>
     <div>
         <div>{movie.vote_average}</div>
