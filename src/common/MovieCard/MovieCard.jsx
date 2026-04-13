@@ -1,8 +1,11 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
 import './MovieCard.style.css';
+import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
 
 const MovieCard = ({movie}) => {
+
+  const {data:genreData} = useMovieGenreQuery()
   return <div
   style={{backgroundImage:"url("+`https://image.tmdb.org/t/p/w300_and_h450_face${movie.poster_path}`+")"}}
   className="movie-card"
