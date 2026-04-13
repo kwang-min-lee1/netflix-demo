@@ -7,6 +7,8 @@ const MovieCard = ({movie}) => {
 
   const {data:genreData} = useMovieGenreQuery()
 
+
+
   const showGenre=(genreIdList)=>{
     if(!genreData) return []
     const genreNameList=genreIdList.map((id)=>{
@@ -30,14 +32,20 @@ const MovieCard = ({movie}) => {
           </Badge>
           ))}
           </div>
-    </div>
-    <div>
-        <div>{movie.vote_average}</div>
-        <div>{movie.popularity}</div>
-        <div>{movie.adult?'over18':'under18'}</div>
-    </div>
+    
+    <div className="mt-2">
+          <img src="/IMDB.png" width={20} className="me-1"/>
+          <span className="me-2">{movie.vote_average}</span>
+          {/* <span className="me-2">{movie.popularity}</span> */}
+          {movie.adult? (
+            <img src="/over18.png" width={20} className="me-1"/>
+          ): (
+            <span>'All'</span>
+            )}
+          </div>
+        </div>
+    </div>;
 
-  </div>;
 };
 
 export default MovieCard;

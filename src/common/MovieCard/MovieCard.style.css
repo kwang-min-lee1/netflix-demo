@@ -4,6 +4,8 @@
     background-size: cover;
     cursor: pointer;
     transition: 0.5s;
+    position: relative;
+    overflow: hidden;
 }
 .overlay{
     width:100%;
@@ -14,8 +16,12 @@
     color:white;
     font-weight: bold;
     overflow-wrap: break-word;
+
+    position: absolute;
+    top: 0;
+    left: 0;
 }
-.overlay:hover{
+.movie-card:hover .overlay{
     opacity: 1;
 }
 .movie-card:hover{
